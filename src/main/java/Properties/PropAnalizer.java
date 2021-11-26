@@ -7,21 +7,19 @@ import java.util.Properties;
 public class PropAnalizer {
     Properties prop;
     String fileName;
-    public String appName;
-    public String appVersion;
-    public String apiToken;
+
 
     public PropAnalizer(){
         prop = new Properties();
-        fileName = "app.config";
+        fileName = "./src/main/resources/app.properties";
         try (FileInputStream fis = new FileInputStream(fileName)) {
             prop.load(fis);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        appName = prop.getProperty("app.name");
-        appVersion = prop.getProperty("app.version");
-        apiToken = prop.getProperty("api.token");
 
+    }
+    public String get(String name){
+        return prop.getProperty(name);
     }
 }
