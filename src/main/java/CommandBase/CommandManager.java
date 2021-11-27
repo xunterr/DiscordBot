@@ -1,9 +1,6 @@
 package CommandBase;
 
-import Commands.JoinCommand;
-import Commands.LeaveCommand;
-import Commands.PingCommand;
-import Commands.PlayCommand;
+import Commands.*;
 import Properties.PropAnalizer;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
@@ -21,6 +18,8 @@ public class CommandManager {
         addCommand(new JoinCommand());
         addCommand(new LeaveCommand());
         addCommand(new PlayCommand());
+        addCommand(new StopCommand());
+        addCommand(new SkipCommand());
     }
 
     private void addCommand(ICommand cmd){

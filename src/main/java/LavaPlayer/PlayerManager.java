@@ -55,9 +55,9 @@ public class PlayerManager {
             public void playlistLoaded(AudioPlaylist audioPlaylist) {
                 final List<AudioTrack> tracks = audioPlaylist.getTracks();
 
-                channel.sendMessage("Добавлено '")
+                channel.sendMessage("Добавлено ")
                         .append(String.valueOf(tracks.size()))
-                        .append("' треков из плейлиста ")
+                        .append(" треков из плейлиста ")
                         .append(audioPlaylist.getName())
                         .submit();
 
