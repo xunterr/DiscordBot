@@ -40,7 +40,7 @@ public class PlayCommand implements ICommand {
                     .submit();
         }
 
-        String url = ctx.getArgs().get(0);
+        String url = String.join(" ", ctx.getArgs());
 
         if(!isUrl(url)){
             url = "ytsearch:" + url;
@@ -55,11 +55,11 @@ public class PlayCommand implements ICommand {
     }
 
     private boolean isUrl(String url){
-        try{
-            new URI(url);
+        if(url.startsWith("https://") || url.startsWith("http://")) {
             return true;
-        }catch (URISyntaxException ex){
+        }else{
             return false;
         }
+
     }
 }
